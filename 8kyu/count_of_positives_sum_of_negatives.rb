@@ -21,7 +21,7 @@ def count_positives_sum_negatives(lst)
   negative_sum = lst.map { |x| x if x < 0 }.compact
   negative_sum = negative_sum.inject(0){|sum, num| (num < 0) ? sum + num : sum}
   result = [positive_count.count]
-  p result.push(negative_sum)
+  return result.push(negative_sum)
 end
 
 count_positives_sum_negatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15])

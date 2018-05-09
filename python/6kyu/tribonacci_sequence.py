@@ -28,8 +28,8 @@
 
 def tribonacci(signature, n):
 
-    if (n == 0):
-        return []
+    if (n < 3):
+        return signature[:n]
 
     counter = 0
     while (n > 3):
@@ -37,7 +37,6 @@ def tribonacci(signature, n):
         signature.append(next_num)
         counter += 1
         n -= 1
-
     return signature
 
 

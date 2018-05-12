@@ -44,18 +44,27 @@ def format_duration(seconds):
     if seconds == 0:
         return "now"
 
-    m, s = divmod(seconds, 60)
-    h, m = divmod(m, 60)
-    d, h = divmod(h, 24)
-    y, d = divmod(d, 365)
-
     results = {
-    'second': s,
-    'minute': m,
-    'hour': h,
-    'day': d,
-    'year': y
+    'second': 0,
+    'minute': 0,
+    'hour': 0,
+    'day': 0,
+    'year': 0
     }
+
+    results['second'] = seconds % 60
+
+    minutes = (seconds - results['second']) / 60
+    results['minute'] = minutes % 60
+
+    hours = (minutes - results['minute']) / 60
+    results['hour'] = hours % 24
+
+    days = (hours - results['hour']) / 24
+    results['day'] = days % 365
+
+    years = (days - results['day']) / 365
+    results['year'] = years
 
     answer = []
 
